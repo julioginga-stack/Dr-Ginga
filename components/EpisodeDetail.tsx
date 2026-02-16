@@ -22,8 +22,8 @@ const EpisodeDetail: React.FC<EpisodeDetailProps> = ({ episode, onBack, onPlay }
         generateExecutiveSummary(episode.title, episode.description),
         generateTranscript(episode.title)
       ]);
-      setSummary(sum || 'No summary available');
-      setTranscript(trans || 'No transcript available');
+      setSummary(sum || 'Resumo indisponível no momento');
+      setTranscript(trans || 'Transcrição indisponível');
       setIsLoading(false);
     };
 
@@ -39,34 +39,49 @@ const EpisodeDetail: React.FC<EpisodeDetailProps> = ({ episode, onBack, onPlay }
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-        Back to Library
+        Voltar para Biblioteca
       </button>
 
       <div className="flex flex-col md:flex-row gap-12 mb-12">
         <div className="w-full md:w-1/3">
-          <img 
-            src={episode.coverImage} 
-            alt={episode.title} 
-            className="w-full aspect-square rounded-3xl object-cover shadow-2xl border-4 border-[#1e293b]"
-          />
+          <div className="relative">
+            <img 
+              src={episode.coverImage} 
+              alt={episode.title} 
+              className="w-full aspect-square rounded-3xl object-cover shadow-2xl border-4 border-[#1e293b]"
+            />
+            {episode.isLive && (
+              <div className="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full animate-pulse shadow-lg">
+                EM DIRECTO
+              </div>
+            )}
+          </div>
           <button 
             onClick={() => onPlay(episode)}
             className="w-full mt-6 bg-[#d4af37] text-black font-bold py-4 rounded-2xl shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            Play Now
+            Reproduzir Agora
           </button>
         </div>
 
         <div className="w-full md:w-2/3">
           <span className="text-[#d4af37] font-bold text-xs uppercase tracking-widest bg-[#d4af37]/10 px-3 py-1 rounded-full">{episode.category}</span>
-          <h1 className="text-5xl font-premium font-bold mt-4 mb-2 leading-tight">{episode.title}</h1>
-          <p className="text-xl text-slate-400 font-light mb-6">Host: {episode.host} • {episode.duration}</p>
-          <p className="text-slate-300 leading-relaxed text-lg">{episode.description}</p>
+          <h1 className="text-5xl font-premium font-bold mt-4 mb-6 leading-tight">{episode.title}</h1>
+          
+          <div className="flex items-center gap-4 mb-8">
+            <img src={episode.hostAvatar} className="w-12 h-12 rounded-full border-2 border-[#d4af37]" alt={episode.host} />
+            <div>
+              <p className="font-bold text-slate-200">{episode.host}</p>
+              <p className="text-xs text-slate-500 uppercase tracking-wider">{episode.duration} • {episode.date}</p>
+            </div>
+          </div>
+
+          <p className="text-slate-300 leading-relaxed text-lg mb-8">{episode.description}</p>
           
           {episode.chapters && (
-            <div className="mt-8 space-y-3">
-              <h3 className="font-bold text-sm uppercase text-slate-500 tracking-wider">Chapters</h3>
+            <div className="space-y-3">
+              <h3 className="font-bold text-sm uppercase text-slate-500 tracking-wider">Capítulos</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {episode.chapters.map((ch, idx) => (
                   <div key={idx} className="bg-slate-800/40 p-3 rounded-xl border border-slate-700/50 flex items-center gap-3">
@@ -86,13 +101,13 @@ const EpisodeDetail: React.FC<EpisodeDetailProps> = ({ episode, onBack, onPlay }
             onClick={() => setActiveView('summary')}
             className={`flex-1 py-5 text-sm font-bold tracking-widest uppercase transition-colors ${activeView === 'summary' ? 'bg-[#1e293b] text-[#d4af37] border-b-2 border-[#d4af37]' : 'text-slate-500 hover:text-slate-300'}`}
           >
-            Executive Summary
+            Resumo Executivo
           </button>
           <button 
             onClick={() => setActiveView('transcript')}
             className={`flex-1 py-5 text-sm font-bold tracking-widest uppercase transition-colors ${activeView === 'transcript' ? 'bg-[#1e293b] text-[#d4af37] border-b-2 border-[#d4af37]' : 'text-slate-500 hover:text-slate-300'}`}
           >
-            Full Transcript
+            Transcrição Completa
           </button>
         </div>
 
@@ -100,7 +115,7 @@ const EpisodeDetail: React.FC<EpisodeDetailProps> = ({ episode, onBack, onPlay }
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-20 gap-4">
               <div className="w-12 h-12 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin"></div>
-              <p className="text-slate-400 font-premium">AI is analyzing the audio context...</p>
+              <p className="text-slate-400 font-premium">A IA está processando o áudio corporativo...</p>
             </div>
           ) : (
             <div className="prose prose-invert max-w-none prose-p:text-slate-400 prose-headings:font-premium">

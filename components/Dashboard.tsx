@@ -11,23 +11,23 @@ const Dashboard: React.FC = () => {
     <div className="space-y-8 animate-fadeIn">
       <div className="flex flex-col md:flex-row justify-between items-end gap-4">
         <div>
-          <h2 className="text-4xl font-premium font-bold mb-2">My Performance</h2>
-          <p className="text-slate-400">Track your learning journey and podcast engagement.</p>
+          <h2 className="text-4xl font-premium font-bold mb-2">Sua Performance</h2>
+          <p className="text-slate-400">Acompanhe sua jornada de aprendizagem e engajamento.</p>
         </div>
         <div className="flex gap-4">
           <div className="bg-[#1e293b] p-4 rounded-2xl border border-slate-800">
-            <p className="text-[10px] uppercase text-slate-500 font-bold mb-1">Total Time</p>
+            <p className="text-[10px] uppercase text-slate-500 font-bold mb-1">Tempo Total</p>
             <p className="text-2xl font-premium text-[#d4af37]">{totalMinutes}m</p>
           </div>
           <div className="bg-[#1e293b] p-4 rounded-2xl border border-slate-800">
-            <p className="text-[10px] uppercase text-slate-500 font-bold mb-1">Daily Avg</p>
+            <p className="text-[10px] uppercase text-slate-500 font-bold mb-1">Média Diária</p>
             <p className="text-2xl font-premium text-[#d4af37]">{avgMinutes}m</p>
           </div>
         </div>
       </div>
 
       <div className="bg-[#0a121e] border border-slate-800 rounded-3xl p-8">
-        <h3 className="text-xl font-premium font-bold mb-8">Weekly Listening Time</h3>
+        <h3 className="text-xl font-premium font-bold mb-8">Tempo de Escuta Semanal</h3>
         <div className="h-64 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={MOCK_METRICS}>
@@ -73,7 +73,7 @@ const Dashboard: React.FC = () => {
            </div>
            <div>
              <h4 className="font-bold text-lg">12</h4>
-             <p className="text-xs text-slate-400">Episodes Finished</p>
+             <p className="text-xs text-slate-400">Episódios Concluídos</p>
            </div>
         </div>
         <div className="bg-[#1e293b] p-6 rounded-2xl border border-slate-800 flex items-center gap-4">
@@ -82,7 +82,7 @@ const Dashboard: React.FC = () => {
            </div>
            <div>
              <h4 className="font-bold text-lg">4</h4>
-             <p className="text-xs text-slate-400">Active Streaks (Days)</p>
+             <p className="text-xs text-slate-400">Dias de Ofensiva</p>
            </div>
         </div>
         <div className="bg-[#1e293b] p-6 rounded-2xl border border-slate-800 flex items-center gap-4">
@@ -91,7 +91,7 @@ const Dashboard: React.FC = () => {
            </div>
            <div>
              <h4 className="font-bold text-lg">8</h4>
-             <p className="text-xs text-slate-400">Summaries Read</p>
+             <p className="text-xs text-slate-400">Resumos Lidos</p>
            </div>
         </div>
       </div>

@@ -3,72 +3,64 @@ import { Category, Episode, ListeningMetric } from './types';
 
 export const MOCK_EPISODES: Episode[] = [
   {
-    id: '1',
-    title: 'The Art of the 5-Minute Pitch',
+    id: 'live-1',
+    title: 'Mentoria Estratégica: Q3 e Q4',
     host: 'Dr. Ricardo Ginga',
+    hostAvatar: 'https://i.pravatar.cc/150?u=ginga',
+    duration: 'Ao Vivo',
+    date: 'Hoje',
+    category: Category.LIVE,
+    description: 'Sessão interactiva sobre planeamento estratégico para o segundo semestre. Participe com perguntas via áudio.',
+    coverImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
+    audioUrl: '',
+    isFavorite: false,
+    isLive: true
+  },
+  {
+    id: '1',
+    title: 'A Arte do Pitch de 5 Minutos',
+    host: 'Dr. Ricardo Ginga',
+    hostAvatar: 'https://i.pravatar.cc/150?u=ginga',
     duration: '18:45',
-    date: '2024-05-10',
+    date: '10 Mai 2024',
     category: Category.PITCH,
-    description: 'Mastering the elevator pitch is crucial for modern entrepreneurs. We dive into the psychological triggers that make investors lean in.',
+    description: 'Dominar o pitch de elevador é crucial para empreendedores modernos. Mergulhamos nos gatilhos psicológicos que atraem investidores.',
     coverImage: 'https://picsum.photos/seed/pitch1/400/400',
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     isFavorite: true,
     chapters: [
-      { time: '00:00', title: 'Introduction' },
-      { time: '04:20', title: 'The Hook' },
-      { time: '10:15', title: 'Data Visualization' },
-      { time: '15:30', title: 'Closing the Deal' }
+      { time: '00:00', title: 'Introdução' },
+      { time: '04:20', title: 'O Gancho' },
+      { time: '10:15', title: 'Visualização de Dados' },
+      { time: '15:30', title: 'Fechando o Negócio' }
     ]
   },
   {
     id: '2',
-    title: 'Digital Transformation in Legacy Companies',
+    title: 'Transformação Digital em Empresas Legadas',
     host: 'Ana Clara Mendes',
+    hostAvatar: 'https://i.pravatar.cc/150?u=ana',
     duration: '42:10',
-    date: '2024-05-08',
+    date: '08 Mai 2024',
     category: Category.WORKSHOP,
-    description: 'How to navigate the resistance to change in established corporate structures while maintaining core values.',
+    description: 'Como navegar a resistência à mudança em estruturas corporativas estabelecidas mantendo os valores centrais.',
     coverImage: 'https://picsum.photos/seed/workshop1/400/400',
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
     isFavorite: false,
     chapters: [
-      { time: '00:00', title: 'Initial Context' },
-      { time: '12:00', title: 'Identifying Barriers' },
-      { time: '30:00', title: 'Implementation Case Studies' }
+      { time: '00:00', title: 'Contexto Inicial' },
+      { time: '12:00', title: 'Identificando Barreiras' },
+      { time: '30:00', title: 'Casos de Implementação' }
     ]
-  },
-  {
-    id: '3',
-    title: 'Narrative Economics for CEOs',
-    host: 'Dr. Ricardo Ginga',
-    duration: '25:30',
-    date: '2024-05-05',
-    category: Category.STORYTELLING,
-    description: 'Why stories drive markets more than math sometimes. Learn how to craft a narrative that resonates with stakeholders.',
-    coverImage: 'https://picsum.photos/seed/story1/400/400',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    isFavorite: false
-  },
-  {
-    id: '4',
-    title: 'Leading Through Global Crisis',
-    host: 'Marcus Aurelius',
-    duration: '35:15',
-    date: '2024-05-01',
-    category: Category.LEADERSHIP,
-    description: 'Strategies for emotional intelligence and rapid decision making during volatile market conditions.',
-    coverImage: 'https://picsum.photos/seed/lead1/400/400',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-    isFavorite: true
   }
 ];
 
 export const MOCK_METRICS: ListeningMetric[] = [
-  { day: 'Mon', minutes: 45 },
-  { day: 'Tue', minutes: 30 },
-  { day: 'Wed', minutes: 60 },
-  { day: 'Thu', minutes: 20 },
-  { day: 'Fri', minutes: 90 },
-  { day: 'Sat', minutes: 15 },
-  { day: 'Sun', minutes: 0 },
+  { day: 'Seg', minutes: 45 },
+  { day: 'Ter', minutes: 30 },
+  { day: 'Qua', minutes: 60 },
+  { day: 'Qui', minutes: 20 },
+  { day: 'Sex', minutes: 90 },
+  { day: 'Sáb', minutes: 15 },
+  { day: 'Dom', minutes: 0 },
 ];
