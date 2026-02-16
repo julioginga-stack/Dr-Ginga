@@ -7,6 +7,7 @@ import EpisodeDetail from './components/EpisodeDetail';
 import LiveSession from './components/LiveSession';
 import Profile from './components/Profile';
 import ContentForm from './components/ContentForm';
+import Resources from './components/Resources';
 import { MOCK_EPISODES } from './constants';
 import { Episode, Category } from './types';
 
@@ -204,6 +205,7 @@ const App: React.FC = () => {
             {(activeTab === 'library' || activeTab === 'favorites') && renderLibrary()}
             {activeTab === 'dashboard' && <Dashboard />}
             {activeTab === 'live' && <LiveSession />}
+            {activeTab === 'resources' && <Resources />}
             {activeTab === 'profile' && <Profile user={userProfile} onUpdate={setUserProfile} />}
           </>
         )}

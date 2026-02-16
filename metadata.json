@@ -2,6 +2,7 @@
   "name": "Dr Ginga – Premium Business Podcast",
   "description": "An exclusive corporate podcast platform featuring executive summaries, AI-powered transcripts, and performance metrics for the modern professional.",
   "requestFramePermissions": [
+    "camera",
     "microphone"
   ]
 }
